@@ -7,15 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Article\Commands" />
-      <Folder Include="Article\Queries" />
-      <Folder Include="Base" />
-      <Folder Include="User\Commands" />
-      <Folder Include="User\Queries" />
+      <PackageReference Include="MediatR" Version="11.1.0" />
+      <PackageReference Include="Result.Success" Version="1.1.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MediatR" Version="11.1.0" />
+      <Folder Include="Handlers" />
     </ItemGroup>
 
 </Project>
