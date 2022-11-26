@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBlog.Application", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBlog.Web", "src\DotNetBlog.Web\DotNetBlog.Web.csproj", "{1042068B-62B4-48AF-8F4D-B71AFF99A34B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBlog.UnitTests", "tests\DotNetBlog.UnitTests\DotNetBlog.UnitTests.csproj", "{5EA5DF88-6B06-4362-A44C-4D4335C7F957}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{1042068B-62B4-48AF-8F4D-B71AFF99A34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1042068B-62B4-48AF-8F4D-B71AFF99A34B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1042068B-62B4-48AF-8F4D-B71AFF99A34B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA5DF88-6B06-4362-A44C-4D4335C7F957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA5DF88-6B06-4362-A44C-4D4335C7F957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA5DF88-6B06-4362-A44C-4D4335C7F957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA5DF88-6B06-4362-A44C-4D4335C7F957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
