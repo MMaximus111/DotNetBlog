@@ -7,8 +7,14 @@ public sealed record ArticleDto
     [JsonPropertyName("title")]
     public string Title { get; init; } = default!;
 
+    [JsonPropertyName("description")]
+    public string Description { get; init; } = default!;
+
     [JsonPropertyName("content")]
     public byte[] Content { get; init; } = default!;
+
+    [JsonPropertyName("minutes_to_read")]
+    public byte MinutesToRead { get; init; }
 
     [JsonPropertyName("author_id")]
     public Guid AuthorId { get; init; }

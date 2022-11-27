@@ -17,4 +17,9 @@
       <PackageReference Include="MediatR" Version="11.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DotNetBlog.Application\DotNetBlog.Application.csproj" />
+      <ProjectReference Include="..\DotNetBlog.Infrastructure\DotNetBlog.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

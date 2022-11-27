@@ -8,6 +8,8 @@ public class Article : EntityBase
         Guid id,
         Guid authorId,
         string title,
+        string description,
+        byte minutesToRead,
         byte[] content,
         ArticleTopic[] articleTopics)
         : base(id)
@@ -15,10 +17,16 @@ public class Article : EntityBase
         AuthorId = authorId;
         Title = title;
         Content = content;
+        MinutesToRead = minutesToRead;
         ArticleTopics = articleTopics;
+        Description = description;
     }
 
     public string Title { get; protected set; }
+
+    public string Description { get; protected set; }
+
+    public byte MinutesToRead { get; protected set; }
 
     public byte[] Content { get; protected set; }
 

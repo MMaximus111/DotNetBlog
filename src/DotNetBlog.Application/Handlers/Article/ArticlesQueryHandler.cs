@@ -16,7 +16,11 @@ public class ArticlesQueryHandler : QueryHandlerBase<ArticlesQuery, PagedResultD
 
     protected override async Task<PagedResultDto<ArticleDto>> QueryAsync(ArticlesQuery request, CancellationToken cancellationToken)
     {
-        IReadOnlyCollection<Domain.Entities.Article> articles = await _articleRepository.GetAllAsync(request.Skip, request.Take, cancellationToken);
+        IReadOnlyCollection<Domain.Entities.Article> articles = await _articleRepository.GetAllAsync(
+            request.Skip,
+            request.Take,
+            request.AuthorId,
+            cancellationToken);
 
         IReadOnlyCollection<ArticleDto> dtos = articles.Adapt<IReadOnlyCollection<ArticleDto>>();
 
