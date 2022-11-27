@@ -25,10 +25,12 @@ where TEntity : EntityBase
         return entity;
     }
 
-    public virtual async Task<IReadOnlyCollection<TEntity>> GetAllAsync(CancellationToken cancellationToken)
+    public virtual async Task<IReadOnlyCollection<TEntity>> GetAllAsync(int skip = 0, int take = int.MaxValue, CancellationToken cancellationToken = default)
     {
         TEntity[] entities = await _dbContext
             .Set<TEntity>()
+            .Skip(skip)
+            .Take(take)
             .ToArrayAsync(cancellationToken);
 
         return entities;

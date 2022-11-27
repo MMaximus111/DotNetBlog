@@ -7,7 +7,7 @@ public interface IRepositoryBase<TEntity>
 {
     Task<TEntity> GetAsync(Guid id);
 
-    Task<IReadOnlyCollection<TEntity>> GetAllAsync(CancellationToken cancellationToken);
+    Task<IReadOnlyCollection<TEntity>> GetAllAsync(int skip = 0, int take = int.MaxValue, CancellationToken cancellationToken = default);
 
     void Update(TEntity entity);
 
