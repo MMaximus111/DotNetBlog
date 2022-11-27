@@ -1,6 +1,12 @@
-﻿namespace DotNetBlog.Application.TransferObjects;
+﻿using System.Text.Json.Serialization;
 
-public class ArticleTopicDto
+namespace DotNetBlog.Application.TransferObjects;
+
+public sealed record ArticleTopicDto
 {
-    
+    [JsonPropertyName("id")]
+    public Guid Id { get; init; }
+
+    [JsonPropertyName("name")]
+    public string Name { get; init; } = default!;
 }

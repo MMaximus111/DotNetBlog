@@ -2,7 +2,7 @@
 using DotNetBlog.Application.Base;
 using DotNetBlog.Application.TransferObjects;
 
-namespace DotNetBlog.Application.Handlers.Article.Queries;
+namespace DotNetBlog.Application.Handlers.Article;
 
 public class ArticleQuery : QueryBase<ArticleDto>
 {

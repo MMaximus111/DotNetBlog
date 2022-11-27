@@ -2,17 +2,15 @@
 
 namespace DotNetBlog.Application.Handlers.Base;
 
-public class QueryHandlerBase<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
+public abstract class QueryHandlerBase<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
 where TRequest : IRequest<TResponse>
 {
+    protected abstract Task<TResponse> QueryAsync(TRequest request, CancellationToken cancellationToken);
 
-    public QueryHandlerBase()
+    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
     {
-        
-    }
-    
-    public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
+        var response = await QueryAsync(request, cancellationToken);
+
+        return response;
     }
 }

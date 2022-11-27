@@ -7,19 +7,20 @@ public abstract class RepositoryBase<TEntity>
 where TEntity : EntityBase
 {
     private readonly BlogDbContext _dbContext;
-    private readonly DbSet<TEntity> _set;
 
     protected RepositoryBase(BlogDbContext dbContext)
     {
         _dbContext = dbContext;
-        _set = _dbContext.Set<TEntity>();
+        Set = _dbContext.Set<TEntity>();
     }
+
+    protected DbSet<TEntity> Set { get; }
 
     public virtual async Task<TEntity> GetAsync(Guid id)
     {
         TEntity entity = await _dbContext
             .Set<TEntity>()
-            .FirstAsync();
+            .FirstAsync(x => x.Id == id);
 
         return entity;
     }
@@ -35,17 +36,17 @@ where TEntity : EntityBase
 
     public void Update(TEntity entity)
     {
-        _set.Update(entity);
+        Set.Update(entity);
     }
 
     public void Delete(TEntity entity)
     {
-        _set.Remove(entity);
+        Set.Remove(entity);
     }
 
     public void Insert(TEntity entity)
     {
-        _set.Add(entity);
+        Set.Add(entity);
     }
 
     public async Task SaveChangesAsync(CancellationToken cancellationToken)
