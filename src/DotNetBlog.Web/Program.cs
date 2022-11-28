@@ -1,13 +1,12 @@
-using DotNetBlog.Application;
-using DotNetBlog.Web.Data;
+using DotNetBlog.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMediatR(typeof(IApplicationAssemblyMarker).Assembly);
+builder.Services.RegisterDependencies();
 
+builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 
 WebApplication app = builder.Build();
 

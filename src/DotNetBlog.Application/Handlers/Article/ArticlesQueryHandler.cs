@@ -16,14 +16,38 @@ public class ArticlesQueryHandler : QueryHandlerBase<ArticlesQuery, PagedResultD
 
     protected override async Task<PagedResultDto<ArticleDto>> QueryAsync(ArticlesQuery request, CancellationToken cancellationToken)
     {
-        IReadOnlyCollection<Domain.Entities.Article> articles = await _articleRepository.GetAllAsync(
-            request.Skip,
-            request.Take,
-            request.AuthorId,
-            cancellationToken);
+        ArticleDto[] articles = new[]
+        {
+            new ArticleDto()
+            {
+                Description = "All features in 1 article",
+                Title = ".NET 7 in depth",
+                AuthorName = "Milan Jovanovic",
+            },
+            new ArticleDto()
+            {
+                Description = "All features in 1 article",
+                Title = ".NET 7 in depth",
+                AuthorName = "Milan Jovanovic",
+            },
+            new ArticleDto()
+            {
+                Description = "All features in 1 article",
+                Title = ".NET 7 in depth",
+                AuthorName = "Milan Jovanovic",
+            }
+        };
 
-        IReadOnlyCollection<ArticleDto> dtos = articles.Adapt<IReadOnlyCollection<ArticleDto>>();
+        return new PagedResultDto<ArticleDto>(articles, request.Skip, request.Take);
 
-        return new PagedResultDto<ArticleDto>(dtos, request.Skip, request.Take);
+        // IReadOnlyCollection<Domain.Entities.Article> articles = await _articleRepository.GetAllAsync(
+        //     request.Skip,
+        //     request.Take,
+        //     request.AuthorId,
+        //     cancellationToken);
+        //
+        // IReadOnlyCollection<ArticleDto> dtos = articles.Adapt<IReadOnlyCollection<ArticleDto>>();
+        //
+        // return new PagedResultDto<ArticleDto>(dtos, request.Skip, request.Take);
     }
 }

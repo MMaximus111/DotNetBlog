@@ -2,13 +2,12 @@
 
 public abstract class EntityBase
 {
-    protected EntityBase(Guid id)
+    protected EntityBase()
     {
-        Id = id;
         CreatedOn = DateTime.Now;
     }
 
-    public Guid Id { get; }
+    public Guid Id { get; protected set; }
 
     public DateTime CreatedOn { get; protected set; }
 }

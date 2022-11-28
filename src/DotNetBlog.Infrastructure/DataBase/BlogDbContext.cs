@@ -5,6 +5,11 @@ namespace DotNetBlog.Infrastructure.DataBase;
 
 public class BlogDbContext : DbContext
 {
+    public BlogDbContext(DbContextOptions options)
+    : base(options)
+    {
+    }
+
     public DbSet<User>? Users { get; set; }
 
     public DbSet<Article>? Articles { get; set; }

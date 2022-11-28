@@ -10,12 +10,16 @@ public class User : EntityBase
         string email,
         string hashedPassword,
         bool subscribedOnEmails)
-        : base(id)
     {
+        Id = id;
         SubscribedOnEmails = subscribedOnEmails;
         Name = name;
         Email = email;
         HashedPassword = hashedPassword;
+    }
+
+    protected User()
+    {
     }
 
     public string Email { get; protected set; }

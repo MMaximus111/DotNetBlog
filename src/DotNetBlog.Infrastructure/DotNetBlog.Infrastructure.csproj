@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DotNetBlog.Application\DotNetBlog.Application.csproj" />
       <ProjectReference Include="..\DotNetBlog.Domain\DotNetBlog.Domain.csproj" />
     </ItemGroup>
 

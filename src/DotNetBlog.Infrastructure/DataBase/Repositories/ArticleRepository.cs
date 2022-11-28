@@ -1,10 +1,11 @@
-﻿using DotNetBlog.Domain.Entities;
+﻿using DotNetBlog.Application.Infrastructure.Repositories;
+using DotNetBlog.Domain.Entities;
 using DotNetBlog.Infrastructure.DataBase.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetBlog.Infrastructure.DataBase.Repositories;
 
-public class ArticleRepository : RepositoryBase<Article>
+public class ArticleRepository : RepositoryBase<Article>, IArticleRepository
 {
     public ArticleRepository(BlogDbContext dbContext)
         : base(dbContext)
@@ -20,5 +21,14 @@ public class ArticleRepository : RepositoryBase<Article>
             .FirstAsync(x => x.Id == id);
 
         return article;
+    }
+
+    public Task<IReadOnlyCollection<Article>> GetAllAsync(
+        int skip = 0,
+        int take = int.MaxValue,
+        Guid? authorId = null,
+        CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
     }
 }

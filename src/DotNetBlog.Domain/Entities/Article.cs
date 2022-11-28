@@ -12,14 +12,18 @@ public class Article : EntityBase
         byte minutesToRead,
         byte[] content,
         ArticleTopic[] articleTopics)
-        : base(id)
     {
+        Id = id;
         AuthorId = authorId;
         Title = title;
         Content = content;
         MinutesToRead = minutesToRead;
         ArticleTopics = articleTopics;
         Description = description;
+    }
+
+    protected Article()
+    {
     }
 
     public string Title { get; protected set; }
