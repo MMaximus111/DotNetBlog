@@ -1,10 +1,17 @@
-﻿<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">@Title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">@AuthorName</h6>
-    <p class="card-text">@Description</p>
-    <a href="#" class="card-link">Card link</a>
-  </div>
+﻿<div class="card" style="max-height: 18rem; max-width: 48rem; ">
+
+    <div class="card-body">
+        <h5 class="card-title" style="font-weight: bold">@Title</h5>
+        <p class="card-text">@Description</p>
+    </div>
+
+    <div class="card-footer bg-transparent border-0">
+        <div class="row">
+            <h6 class="small col text-muted">@AuthorName</h6>
+            <h6 class="small col text-muted text-end">@MinutesToRead min</h6>
+        </div>
+    </div>
+
 </div>
 
 @code {
@@ -17,4 +24,8 @@
 
     [Parameter]
     public string? AuthorName { get; set; }
+
+    [Parameter]
+    public byte MinutesToRead { get; set; }
+
 }

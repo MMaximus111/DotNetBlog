@@ -15,14 +15,21 @@
 }
 else
 {
-    @foreach (var article in articles!)
-    {
-        <ArticlePreview
-            Title="@article.Title"
-            Description="@article.Description"
-            AuthorName="@article.AuthorName">
-        </ArticlePreview>
-    }
+    <div class="container">
+
+        @foreach (var article in articles!)
+        {
+            <div class="row col-sm-12 col-md-11 col-lg" style="margin-bottom: 2rem;">
+                <ArticlePreview
+                    Title="@article.Title"
+                    Description="@article.Description"
+                    AuthorName="@article.AuthorName"
+                    MinutesToRead="@article.MinutesToRead">
+                </ArticlePreview>
+            </div>
+        }
+
+    </div>
 }
 
 @code {
