@@ -1,4 +1,4 @@
-﻿@page "/fetchdata"
+﻿@page "/news"
 @using DotNetBlog.Web.Components.Article
 @using MediatR
 @using DotNetBlog.Application.Handlers.Article
@@ -6,7 +6,7 @@
 @inject IMediator _mediator;
 
 <PageTitle>Weather forecast</PageTitle>
-
+<h1>News</h1>
 @if (articles == null)
 {
     <p>

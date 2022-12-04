@@ -1,0 +1,47 @@
+﻿@page "/articles"
+@using DotNetBlog.Web.Components.Article
+@using MediatR
+@using DotNetBlog.Application.Handlers.Article
+@using DotNetBlog.Application.TransferObjects
+@inject IMediator _mediator;
+
+<PageTitle>Weather forecast</PageTitle>
+
+@if (articles == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <div class="container">
+
+        @foreach (var article in articles!)
+        {
+            <div class="row col-sm-12 col-md-11 col-lg-10" style="margin-bottom: 2rem;">
+                <ArticlePreview
+                    Title="@article.Title"
+                    Description="@article.Description"
+                    AuthorName="@article.AuthorName"
+                    MinutesToRead="@article.MinutesToRead">
+                </ArticlePreview>
+            </div>
+        }
+
+    </div>
+}
+
+@code {
+
+    private IReadOnlyCollection<ArticleDto>? articles { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ArticlesQuery articlesQuery = new ArticlesQuery(0, 100);
+
+        PagedResultDto<ArticleDto> pagedResult = await _mediator.Send(articlesQuery);
+
+        articles = pagedResult.Data;
+    }
+}
