@@ -1,4 +1,8 @@
-﻿<header>
+﻿@using DotNetBlog.Web.Data
+
+@inject ThemeProvider _ThemeProvider;
+
+<header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3" style="background-color: purple; padding-bottom: 0; padding-top: 0;">
         <div class="container-fluid">
             <div>
@@ -28,7 +32,7 @@
                             <text style="color: white; margin-left: 5px">About</text>
                         </NavLink>
                     </div>
-                    <div class="nav-item form-check form-switch ms-auto" style="padding-bottom: 0; padding-top: 12px;" onclick="@DarkModeChanged">
+                    <div class="nav-item form-check form-switch ms-auto" style="padding-bottom: 0; padding-top: 12px;">
                         
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +61,7 @@
 
                         </label>
 
-                        <input class="form-check-input" type="checkbox" id="lightSwitch"/>
+                        <input class="form-check-input" type="checkbox" id="lightSwitch" onclick="@ThemeChanged"/>
                     </div>
                 </ul>
             </div>
@@ -69,21 +73,23 @@
 
 @code {
     private bool collapseNavMenu = true;
-    private bool darkMode = true;
+    private bool darkTheme = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private string? SunImageCssClass => darkMode ? "d-none" : null;
+    private string? SunImageCssClass => darkTheme ? "d-none" : null;
 
-    private string? MoonImageCssClass => darkMode ? null : "d-none";
+    private string? MoonImageCssClass => darkTheme ? null : "d-none";
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
 
-    private void DarkModeChanged()
+    private void ThemeChanged()
     {
-        darkMode = !darkMode;
+        darkTheme = !darkTheme;
+
+        _ThemeProvider.DarkTheme = darkTheme;
     }
 }

@@ -2,6 +2,7 @@
 using DotNetBlog.Infrastructure;
 using DotNetBlog.Infrastructure.DataBase;
 using DotNetBlog.Infrastructure.DataBase.Repositories.Base;
+using DotNetBlog.Web.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ public static class DependencyExtensions
         serviceCollection.RegisterRepositories();
         serviceCollection.RegisterDbMappings();
         serviceCollection.AddDbContext<BlogDbContext>(x => x.UseNpgsql());
+        serviceCollection.AddScoped<ThemeProvider>();
     }
 
     private static void RegisterRepositories(this IServiceCollection serviceCollection)

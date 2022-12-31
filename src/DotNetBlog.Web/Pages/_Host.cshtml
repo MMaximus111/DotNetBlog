@@ -1,7 +1,9 @@
 ﻿@page "/"
+@using DotNetBlog.Web.Data
 @using Microsoft.AspNetCore.Components.Web
 @namespace DotNetBlog.Web.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject ThemeProvider _ThemeProvider;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +17,7 @@
     <link rel="icon" type="image/png" href="favicon.png"/>
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered"/>
 </head>
-<body>
+<body class="@_ThemeProvider.GetStyle()">
 <component type="typeof(App)" render-mode="ServerPrerendered"/>
 
 <div id="blazor-error-ui">

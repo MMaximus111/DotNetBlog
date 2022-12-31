@@ -4,14 +4,14 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.dark-mode {
+.dark-theme {
     background-color: black;
     color: white;
 }
 
-.light-mode {
-    background-color: white;
-    color: black;
+.light-theme {
+    background-color: green;
+    color: green;
 }
 
 html {
