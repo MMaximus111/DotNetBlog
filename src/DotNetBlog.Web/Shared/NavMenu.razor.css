@@ -65,3 +65,9 @@
         overflow-y: auto;
     }
 }
+
+@media (max-width: 575px) {
+    .theme-switcher {
+        margin-bottom: 8px;
+    }
+}

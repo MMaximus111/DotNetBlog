@@ -2,12 +2,13 @@
 @using DotNetBlog.Web.Components
 @using MediatR
 @using DotNetBlog.Application.Handlers.Article
+@using DotNetBlog.Application.Handlers.News
 @using DotNetBlog.Application.TransferObjects
 @inject IMediator _mediator;
 
 <PageTitle>News</PageTitle>
 
-@if (articles == null)
+@if (news == null)
 {
     <p>
         <em>Loading...</em>
@@ -17,12 +18,12 @@ else
 {
     <div class="container" style="margin-top: 48px;">
 
-        @foreach (var article in articles!)
+        @foreach (var newsItem in news!)
         {
             <div class="row col-sm-12 col-md-11 col-lg" style="margin-bottom: 2rem;">
                 <NewsItem
-                    Title="@article.Title"
-                    Description="@article.Description">
+                    Title="@newsItem.Title"
+                    Description="@newsItem.Description">
                 </NewsItem>
             </div>
         }
@@ -32,14 +33,14 @@ else
 
 @code {
 
-    private IReadOnlyCollection<ArticleDto>? articles { get; set; }
+    private IReadOnlyCollection<NewsDto>? news { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        ArticlesQuery articlesQuery = new ArticlesQuery(0, 100);
+        NewsQuery newsQuery = new NewsQuery(0, 100);
 
-        PagedResultDto<ArticleDto> pagedResult = await _mediator.Send(articlesQuery);
+        PagedResultDto<NewsDto> pagedResult = await _mediator.Send(newsQuery);
 
-        articles = pagedResult.Data;
+        news = pagedResult.Data;
     }
 }

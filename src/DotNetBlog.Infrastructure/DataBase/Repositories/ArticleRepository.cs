@@ -23,12 +23,18 @@ public class ArticleRepository : RepositoryBase<Article>, IArticleRepository
         return article;
     }
 
-    public Task<IReadOnlyCollection<Article>> GetAllAsync(
+    public async Task<IReadOnlyCollection<Article>> GetAllAsync(
         int skip = 0,
         int take = int.MaxValue,
         Guid? authorId = null,
         CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        Article[] articles = await Set
+            .AsQueryable()
+            .Skip(skip)
+            .Take(take)
+            .ToArrayAsync(cancellationToken);
+
+        return articles;
     }
 }
