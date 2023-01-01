@@ -18,6 +18,7 @@ create table articles (
                           description varchar(255) not null,
                           minutes_to_read int not null,
                           content bytea not null,
+                          created_on time not null default now(),
                           primary key (id),
                           foreign key (id_author) references users(id)
 );

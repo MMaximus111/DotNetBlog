@@ -20,6 +20,6 @@ public class ArticleMap : MapBase<Article>
         builder.Property(x => x.MinutesToRead).HasColumnName("minutes_to_read");
         builder.Property(x => x.Description).HasColumnName("description");
 
-        builder.HasOne(x => x.Author).WithMany().HasForeignKey(x => x.AuthorId);
+        builder.HasOne(x => x.Author).WithMany(x => x.Articles).HasForeignKey(x => x.AuthorId);
     }
 }

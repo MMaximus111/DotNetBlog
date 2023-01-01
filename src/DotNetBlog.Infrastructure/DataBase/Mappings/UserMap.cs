@@ -19,6 +19,6 @@ public class UserMap : MapBase<User>
         builder.Property(x => x.HashedPassword).HasColumnName("hashed_password");
         builder.Property(x => x.SubscribedOnEmails).HasColumnName("subscribed_on_emails");
 
-        builder.HasMany(x => x.Articles).WithOne().HasForeignKey(x => x.AuthorId);
+         builder.HasMany(x => x.Articles).WithOne(x => x.Author).HasForeignKey(x => x.AuthorId);
     }
 }
