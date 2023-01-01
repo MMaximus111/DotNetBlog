@@ -19,6 +19,7 @@
 }
 
 .form-check-input:checked {
+    background-color: #dadada !important;
     border-color: black;
 }
 
