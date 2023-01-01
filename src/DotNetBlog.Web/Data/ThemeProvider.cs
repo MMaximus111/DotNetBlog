@@ -2,7 +2,7 @@
 
 public class ThemeProvider
 {
-    public bool DarkTheme { get; set; }
+    public bool DarkTheme { get; set; } = true;
 
     public string GetStyle()
     {

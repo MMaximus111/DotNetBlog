@@ -1,12 +1,12 @@
 ﻿@page "/news"
-@using DotNetBlog.Web.Components.Article
+@using DotNetBlog.Web.Components
 @using MediatR
 @using DotNetBlog.Application.Handlers.Article
 @using DotNetBlog.Application.TransferObjects
 @inject IMediator _mediator;
 
-<PageTitle>Weather forecast</PageTitle>
-<h1>News</h1>
+<PageTitle>News</PageTitle>
+
 @if (articles == null)
 {
     <p>
@@ -15,17 +15,15 @@
 }
 else
 {
-    <div class="container">
+    <div class="container" style="margin-top: 48px;">
 
         @foreach (var article in articles!)
         {
             <div class="row col-sm-12 col-md-11 col-lg" style="margin-bottom: 2rem;">
-                <ArticlePreview
+                <NewsItem
                     Title="@article.Title"
-                    Description="@article.Description"
-                    AuthorName="@article.AuthorName"
-                    MinutesToRead="@article.MinutesToRead">
-                </ArticlePreview>
+                    Description="@article.Description">
+                </NewsItem>
             </div>
         }
 

@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using DotNetBlog.Application.Base;
+using DotNetBlog.Application.Handlers.Base;
 using DotNetBlog.Application.TransferObjects;
 
 namespace DotNetBlog.Application.Handlers.Article;

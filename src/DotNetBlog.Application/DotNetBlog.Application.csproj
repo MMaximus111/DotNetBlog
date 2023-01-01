@@ -13,10 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Handlers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\DotNetBlog.Domain\DotNetBlog.Domain.csproj" />
     </ItemGroup>
 
