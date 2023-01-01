@@ -1,11 +1,13 @@
-﻿@inherits LayoutComponentBase
+﻿@using DotNetBlog.Web.Data
+@inherits LayoutComponentBase
+@inject ThemeProvider _ThemeProvider;
 
 <PageTitle>DotNetBlog.Web</PageTitle>
 
-<NavMenu/>
+<NavMenu OnThemeChanged="@OnThemeChanged"/>
 <div class="page">
 
-    <main>
+    <main class="@_ThemeProvider.GetStyle()">
 
         <article class="content px-4">
             @Body
@@ -15,3 +17,11 @@
 
 </div>
 <Footer></Footer>
+
+@code
+{
+    private void OnThemeChanged()
+    {
+        StateHasChanged();
+    }
+}

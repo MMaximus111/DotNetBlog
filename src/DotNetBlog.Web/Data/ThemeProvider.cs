@@ -6,11 +6,6 @@ public class ThemeProvider
 
     public string GetStyle()
     {
-        if (DarkTheme)
-        {
-            return "dark-theme";
-        }
-
-        return "light-theme";
+        return DarkTheme ? "dark-theme" : "light-theme";
     }
 }

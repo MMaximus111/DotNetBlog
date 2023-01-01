@@ -76,10 +76,11 @@
     private bool darkTheme = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
     private string? SunImageCssClass => darkTheme ? "d-none" : null;
-
     private string? MoonImageCssClass => darkTheme ? null : "d-none";
+
+    [Parameter]
+    public EventCallback OnThemeChanged { get; set; }
 
     private void ToggleNavMenu()
     {
@@ -91,5 +92,7 @@
         darkTheme = !darkTheme;
 
         _ThemeProvider.DarkTheme = darkTheme;
+
+        OnThemeChanged.InvokeAsync();
     }
 }

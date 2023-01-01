@@ -5,13 +5,18 @@ html, body {
 }
 
 .dark-theme {
-    background-color: black;
-    color: white;
+    background-color: #3f3f3f !important;
+    color: #dadada !important;
 }
 
 .light-theme {
-    background-color: green;
-    color: green;
+    background-color: #dadada !important;
+    color: #000000 !important;
+}
+
+.card {
+    background-color: transparent !important;
+    border: 1px solid !important;
 }
 
 html {

@@ -19,7 +19,6 @@
 }
 
 .form-check-input:checked {
-    background-color: darkblue;
     border-color: black;
 }
 
