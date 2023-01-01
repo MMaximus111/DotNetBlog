@@ -8,7 +8,7 @@ namespace DotNetBlog.Infrastructure.DataBase.Mappings;
 public class UserMap : MapBase<User>
 {
     public UserMap()
-    : base("user")
+    : base("users")
     {
     }
 

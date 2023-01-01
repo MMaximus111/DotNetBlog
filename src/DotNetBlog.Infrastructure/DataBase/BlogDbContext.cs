@@ -6,7 +6,7 @@ namespace DotNetBlog.Infrastructure.DataBase;
 public class BlogDbContext : DbContext
 {
     public BlogDbContext(DbContextOptions options)
-    : base(options)
+        : base(options)
     {
     }
 
@@ -15,4 +15,10 @@ public class BlogDbContext : DbContext
     public DbSet<Article>? Articles { get; set; }
 
     public DbSet<ArticleTopic>? ArticleTopics { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(IInfrastructureAssemblyMarker).Assembly);
+        base.OnModelCreating(modelBuilder);
+    }
 }

@@ -10,12 +10,11 @@ namespace DotNetBlog.Web.Extensions;
 
 public static class DependencyExtensions
 {
-    public static void RegisterDependencies(this IServiceCollection serviceCollection)
+    public static void RegisterDependencies(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
         serviceCollection.AddMediatR(typeof(IApplicationAssemblyMarker).Assembly);
         serviceCollection.RegisterRepositories();
-        serviceCollection.RegisterDbMappings();
-        serviceCollection.AddDbContext<BlogDbContext>(x => x.UseNpgsql());
+        serviceCollection.AddDbContext<BlogDbContext>(x => x.UseNpgsql(configuration.GetConnectionString("Postgres")));
         serviceCollection.AddScoped<ThemeProvider>();
     }
 
@@ -23,7 +22,7 @@ public static class DependencyExtensions
     {
         Type[] types = typeof(IInfrastructureAssemblyMarker).Assembly
             .GetTypes()
-            .Where(t => t is { IsClass: true, BaseType: { IsGenericType: true } }
+            .Where(t => t is { IsClass: true, BaseType.IsGenericType: true }
                         && t.BaseType.GetGenericTypeDefinition() == typeof(RepositoryBase<>))
             .ToArray();
 
@@ -36,10 +35,5 @@ public static class DependencyExtensions
                 serviceCollection.AddScoped(interfaceType, type);
             }
         }
-    }
-
-    private static void RegisterDbMappings(this IServiceCollection serviceCollection)
-    {
-        
     }
 }

@@ -8,7 +8,7 @@ namespace DotNetBlog.Infrastructure.DataBase.Mappings;
 public class ArticleMap : MapBase<Article>
 {
     public ArticleMap()
-        : base("article")
+        : base("articles")
     {
     }
 

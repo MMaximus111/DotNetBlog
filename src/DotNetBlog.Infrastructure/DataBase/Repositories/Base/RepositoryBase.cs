@@ -31,6 +31,7 @@ where TEntity : EntityBase
             .Set<TEntity>()
             .Skip(skip)
             .Take(take)
+            .AsNoTracking()
             .ToArrayAsync(cancellationToken);
 
         return entities;

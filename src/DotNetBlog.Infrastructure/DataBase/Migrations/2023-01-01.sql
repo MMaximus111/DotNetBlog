@@ -21,3 +21,20 @@ create table articles (
                           primary key (id),
                           foreign key (id_author) references users(id)
 );
+
+create table topics
+(
+    id   uuid        not null,
+    name varchar(60) not null,
+    primary key (id)
+);
+
+create table article_topics
+(
+    id   uuid        not null,
+    id_article uuid not null,
+    id_topic uuid not null,
+    primary key (id),
+    foreign key (id_article) references articles(id),
+    foreign key (id_topic) references topics(id)
+);
