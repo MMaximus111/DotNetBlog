@@ -19,7 +19,6 @@ html, body {
 }
 
 .article-preview:hover{
-    border-color: #1861ac;
     color: #1861ac;
 }
 
