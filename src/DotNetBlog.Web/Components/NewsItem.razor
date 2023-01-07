@@ -2,7 +2,7 @@
 
     <div class="card-body">
         <h5 class="card-title" style="font-weight: bold">@Title</h5>
-        <p class="card-text">@Description</p>
+        <p class="card-text">@Content</p>
     </div>
 
 </div>
@@ -13,5 +13,8 @@
     public string? Title { get; set; }
 
     [Parameter]
-    public string? Description { get; set; }
+    public string? Content { get; set; }
+
+    [Parameter]
+    public DateTime CreatedOn { get; set; }
 }
