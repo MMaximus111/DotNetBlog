@@ -14,6 +14,20 @@ html, body {
     color: #000000 !important;
 }
 
+.article-preview{
+    margin-bottom: 2rem;
+}
+
+.article-preview:hover{
+    border-color: #1861ac;
+    color: #1861ac;
+}
+
+.blog-tab{
+    margin-top: 48px;
+}
+
+
 .card {
     background-color: transparent !important;
     border: 1px solid !important;

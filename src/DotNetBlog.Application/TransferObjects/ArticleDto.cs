@@ -4,6 +4,9 @@ namespace DotNetBlog.Application.TransferObjects;
 
 public sealed record ArticleDto
 {
+    [JsonPropertyName("id")]
+    public Guid Id { get; init; } = default!;
+
     [JsonPropertyName("title")]
     public string Title { get; init; } = default!;
 

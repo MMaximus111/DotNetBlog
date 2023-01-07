@@ -1,4 +1,9 @@
-﻿<div class="card" style="max-height: 25rem; max-width: 54rem;">
+﻿@using MediatR
+@using Microsoft.AspNetCore.Http.Extensions
+@inject IMediator _mediator;
+@inject NavigationManager _navigationManager;
+
+<div class="card" style="max-height: 25rem; max-width: 54rem;" onclick="@OpenArticle">
 
     <div class="card-body">
         <h5 class="card-title" style="font-weight: bold">@Title</h5>
@@ -17,6 +22,9 @@
 @code {
 
     [Parameter]
+    public Guid Id { get; set; }
+
+    [Parameter]
     public string? Title { get; set; }
 
     [Parameter]
@@ -28,4 +36,8 @@
     [Parameter]
     public byte MinutesToRead { get; set; }
 
+    private void OpenArticle()
+    {
+        _navigationManager.NavigateTo($"/articles/{Id}");
+    }
 }
