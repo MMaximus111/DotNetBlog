@@ -22,4 +22,18 @@ public class ArticleRepository : RepositoryBase<Article>, IArticleRepository
 
         return article;
     }
+
+    public override async Task<IReadOnlyCollection<Article>> GetAllAsync(
+        int skip = 0,
+        int take = Int32.MaxValue,
+        CancellationToken cancellationToken = default)
+    {
+        IReadOnlyCollection<Article> articles = await Set.AsQueryable()
+            .Include(x => x.Author)
+            .Skip(skip)
+            .Take(take)
+            .ToArrayAsync(cancellationToken);
+
+        return articles;
+    }
 }

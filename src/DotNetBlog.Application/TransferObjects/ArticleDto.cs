@@ -14,7 +14,7 @@ public sealed record ArticleDto
     public string Description { get; init; } = default!;
 
     [JsonPropertyName("content")]
-    public byte[] Content { get; init; } = default!;
+    public string Content { get; init; } = default!;
 
     [JsonPropertyName("minutes_to_read")]
     public byte MinutesToRead { get; init; }

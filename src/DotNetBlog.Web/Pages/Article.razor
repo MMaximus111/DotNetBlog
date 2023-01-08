@@ -1,11 +1,22 @@
 ﻿@page "/articles/{id}"
+@using MediatR
+@using DotNetBlog.Application.Handlers.Article
+@using DotNetBlog.Application.TransferObjects
+@inject IMediator _mediator;
 
- <div class="blog-tab container">
-    <h1>@Id</h1>
+<div class="blog-tab container">
+    @_articleDto?.Content
 </div>
 
 @code
 {
     [Parameter]
     public string Id { get; set; } = default!;
+
+    private ArticleDto? _articleDto;
+
+    protected override async Task OnInitializedAsync()
+    {
+         _articleDto = await _mediator.Send(new ArticleQuery(Guid.Parse(Id)));
+    }
 }

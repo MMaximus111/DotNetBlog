@@ -6,6 +6,11 @@ namespace DotNetBlog.Application.Handlers.Article;
 
 public class ArticleQuery : QueryBase<ArticleDto>
 {
+    public ArticleQuery(Guid id)
+    {
+        Id = id;
+    }
+
     [JsonPropertyName("id")]
     public Guid Id { get; init; }
 }

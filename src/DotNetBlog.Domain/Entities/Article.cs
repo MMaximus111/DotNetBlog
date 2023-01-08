@@ -10,7 +10,7 @@ public class Article : EntityBase
         string title,
         string description,
         byte minutesToRead,
-        byte[] content,
+        string content,
         ArticleTopic[] articleTopics)
     {
         Id = id;
@@ -32,7 +32,7 @@ public class Article : EntityBase
 
     public byte MinutesToRead { get; protected set; }
 
-    public byte[] Content { get; protected set; }
+    public string Content { get; protected set; }
 
     public Guid AuthorId { get; protected set; }
 

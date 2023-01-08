@@ -5,6 +5,7 @@ create table users (
                        email varchar(40) not null,
                        hashed_password varchar(50) not null,
                        subscribed_on_emails bool not null,
+                       created_on timestamp not null default now(),
                        primary key (id)
 );
 
@@ -17,7 +18,7 @@ create table articles (
                           title varchar (100) not null,
                           description varchar(255) not null,
                           minutes_to_read int not null,
-                          content bytea not null,
+                          content text not null,
                           created_on time not null default now(),
                           primary key (id),
                           foreign key (id_author) references users(id)
@@ -27,6 +28,7 @@ create table topics
 (
     id   uuid        not null,
     name varchar(60) not null,
+    created_on timestamp not null default now(),
     primary key (id)
 );
 
@@ -35,6 +37,7 @@ create table article_topics
     id   uuid        not null,
     id_article uuid not null,
     id_topic uuid not null,
+    created_on timestamp not null default now(),
     primary key (id),
     foreign key (id_article) references articles(id),
     foreign key (id_topic) references topics(id)
