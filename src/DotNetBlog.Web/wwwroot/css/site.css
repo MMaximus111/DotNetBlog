@@ -24,6 +24,7 @@ html, body {
 
 .blog-tab{
     margin-top: 48px;
+    min-height: 100vh;
 }
 
 .card {
